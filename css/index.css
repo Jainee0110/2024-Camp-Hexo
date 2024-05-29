@@ -3428,6 +3428,7 @@ h1.page-title + .tag-cloud-list {
 #page-header {
   position: relative;
   width: 100%;
+  background: url(source/Images/banner.jpg);
   background-color: #49b1f5;
   background-position: center center;
   background-size: cover;
