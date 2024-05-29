@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Javascript | Jainee's Blog</title><meta name="author" content="Jainee Wang"><meta name="copyright" content="Jainee Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="🏅 數字處理四捨五入語法1number.toFixed(digits)     參數 描述    digits 可選小數位數，0~20之間的值(包含0和20)，默認為0(無小數)   字串轉數字1Number(object)     參數 描述    object JacaScript對象，若未提供該參數，則返回0；若值無法轉為數字，則返回NaN   餘數運算子1x % y  12console">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript">
+<meta property="og:url" content="https://github.com/Jainee0110/2024-Camp-Hexo/2024/05/29/Javascript/index.html">
+<meta property="og:site_name" content="Jainee&#39;s Blog">
+<meta property="og:description" content="🏅 數字處理四捨五入語法1number.toFixed(digits)     參數 描述    digits 可選小數位數，0~20之間的值(包含0和20)，默認為0(無小數)   字串轉數字1Number(object)     參數 描述    object JacaScript對象，若未提供該參數，則返回0；若值無法轉為數字，則返回NaN   餘數運算子1x % y  12console">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/Jainee0110/2024-Camp-Hexo/img/Jainee.jpg">
+<meta property="article:published_time" content="2024-05-29T08:38:27.000Z">
+<meta property="article:modified_time" content="2024-05-29T09:27:54.627Z">
+<meta property="article:author" content="Jainee Wang">
+<meta property="article:tag" content="Frontend">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/Jainee0110/2024-Camp-Hexo/img/Jainee.jpg"><link rel="shortcut icon" href="/Jainee0110/2024-Camp-Hexo/img/favicon.png"><link rel="canonical" href="https://github.com/Jainee0110/2024-Camp-Hexo/2024/05/29/Javascript/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Jainee0110/2024-Camp-Hexo/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/Jainee0110/2024-Camp-Hexo/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Javascript',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-29 17:27:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/Jainee0110/2024-Camp-Hexo/img/Jainee.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/Jainee0110/2024-Camp-Hexo/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/Jainee0110/2024-Camp-Hexo/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/Jainee0110/2024-Camp-Hexo/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Jainee0110/2024-Camp-Hexo/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/Jainee0110/2024-Camp-Hexo/blog/"><i class="fa-fw fas fa-folder-open"></i><span> Blog</span></a></div><div class="menus_item"><a class="site-page" href="/Jainee0110/2024-Camp-Hexo/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/Jainee0110/2024-Camp-Hexo/" title="Jainee's Blog"><span class="site-name">Jainee's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Jainee0110/2024-Camp-Hexo/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/Jainee0110/2024-Camp-Hexo/blog/"><i class="fa-fw fas fa-folder-open"></i><span> Blog</span></a></div><div class="menus_item"><a class="site-page" href="/Jainee0110/2024-Camp-Hexo/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Javascript</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-29T08:38:27.000Z" title="Created 2024-05-29 16:38:27">2024-05-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-29T09:27:54.627Z" title="Updated 2024-05-29 17:27:54">2024-05-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Javascript"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="🏅-數字處理"><a href="#🏅-數字處理" class="headerlink" title="🏅 數字處理"></a>🏅 <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/js/js_number_methods.asp">數字處理</a></h2><h3 id="四捨五入語法"><a href="#四捨五入語法" class="headerlink" title="四捨五入語法"></a>四捨五入語法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">number.<span class="title function_">toFixed</span>(digits)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>digits</strong></td>
+<td>可選小數位數，0~20之間的值(包含0和20)，默認為0(無小數)</td>
+</tr>
+</tbody></table>
+<h3 id="字串轉數字"><a href="#字串轉數字" class="headerlink" title="字串轉數字"></a>字串轉數字</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Number</span>(object)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>object</strong></td>
+<td>JacaScript對象，若未提供該參數，則返回0；若值無法轉為數字，則返回NaN</td>
+</tr>
+</tbody></table>
+<h3 id="餘數運算子"><a href="#餘數運算子" class="headerlink" title="餘數運算子"></a>餘數運算子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x % y</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>%<span class="number">4</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">6</span>%<span class="number">2</span>) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+</br>
+
+<h2 id="🏅-字串設計"><a href="#🏅-字串設計" class="headerlink" title="🏅 字串設計"></a>🏅 <a target="_blank" rel="noopener" href="https://www.w3school.com.cn/js/js_string_methods.asp">字串設計</a></h2><h3 id="字串長度計算"><a href="#字串長度計算" class="headerlink" title="字串長度計算"></a>字串長度計算</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="property">length</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">str.<span class="property">length</span> <span class="comment">// 11</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;你好&#x27;</span>;</span><br><span class="line">str.<span class="property">length</span> <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="英文強制小寫"><a href="#英文強制小寫" class="headerlink" title="英文強制小寫"></a>英文強制小寫</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.<span class="title function_">toLowerCase</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="去除段落兩端空白"><a href="#去除段落兩端空白" class="headerlink" title="去除段落兩端空白"></a>去除段落兩端空白</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="title function_">trim</span>()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// input 輸入</span></span><br><span class="line"><span class="title function_">trimString</span>(<span class="string">&quot; aa@gmail.com  &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// output 輸出</span></span><br><span class="line"><span class="string">&quot;aa@gmail.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字串轉陣列"><a href="#字串轉陣列" class="headerlink" title="字串轉陣列"></a>字串轉陣列</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">txt.<span class="title function_">split</span>(<span class="string">&quot;,&quot;</span>);    <span class="comment">// 用逗號分隔</span></span><br><span class="line">txt.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>);    <span class="comment">// 用空格分隔</span></span><br><span class="line">txt.<span class="title function_">split</span>(<span class="string">&quot;|&quot;</span>);    <span class="comment">// 用豎線分隔</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// input 輸入</span></span><br><span class="line"><span class="title function_">splitString</span>(<span class="string">&quot;black,red,white&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// output 輸出</span></span><br><span class="line">[<span class="string">&quot;black&quot;</span>,<span class="string">&quot;red&quot;</span>,<span class="string">&quot;white&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="切割字串"><a href="#切割字串" class="headerlink" title="切割字串"></a>切割字串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="title function_">slice</span>(start, end) </span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>start</strong></td>
+<td>可為負數，從字串結尾開始計數</td>
+</tr>
+<tr>
+<td><strong>end</strong></td>
+<td>可省略，將裁剪剩餘字串</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="title function_">substring</span>(start, end)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>start</strong></td>
+<td>不可為負數</td>
+</tr>
+<tr>
+<td><strong>end</strong></td>
+<td>可省略，將裁剪剩餘字串</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string.<span class="title function_">substr</span>(start, length)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>start</strong></td>
+<td>可為負數，從字串結尾開始計數</td>
+</tr>
+<tr>
+<td><strong>lenfth</strong></td>
+<td>可省略，將裁剪剩餘字串</td>
+</tr>
+</tbody></table>
+</br>
+
+<h2 id="🏅-運算式與運算子"><a href="#🏅-運算式與運算子" class="headerlink" title="🏅 運算式與運算子"></a>🏅 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_operators">運算式與運算子</a></h2><h3 id="比較運算子"><a href="#比較運算子" class="headerlink" title="比較運算子"></a>比較運算子</h3><table>
+<thead>
+<tr>
+<th>描述</th>
+<th align="center">運算子</th>
+<th>描述</th>
+<th>運算子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Equality</td>
+<td align="center"><code>==</code></td>
+<td>Strict Equality</td>
+<td><code>===</code></td>
+</tr>
+<tr>
+<td>Inequality</td>
+<td align="center"><code>!=</code></td>
+<td>Strict Inequality</td>
+<td><code>!==</code></td>
+</tr>
+<tr>
+<td>Greater than</td>
+<td align="center"><code>&gt;</code></td>
+<td>Greater than or equal</td>
+<td><code>&gt;=</code></td>
+</tr>
+<tr>
+<td>Less than</td>
+<td align="center"><code>&lt;</code></td>
+<td>Less than or equal</td>
+<td><code>&lt;=</code></td>
+</tr>
+</tbody></table>
+<h3 id="邏輯運算子"><a href="#邏輯運算子" class="headerlink" title="邏輯運算子"></a>邏輯運算子</h3><blockquote>
+<p>通常被用於布林(邏輯)值</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Logical AND</td>
+<td><code>運算式1 &amp;&amp; 運算式2</code></td>
+<td>兩個運算元都是 True 時才會回傳 True，否則回傳 false</td>
+</tr>
+<tr>
+<td>Logical OR</td>
+<td><code>運算式1｜｜運算式2</code></td>
+<td>兩個運算元有任一個是 True 時就會回傳 True，否則回傳 false</td>
+</tr>
+<tr>
+<td>Logical NOT</td>
+<td><code>!運算式</code></td>
+<td>單一個運算元能被轉換成 True 時，回傳false ， 不然回傳 true</td>
+</tr>
+</tbody></table>
+<h3 id="型別判斷"><a href="#型別判斷" class="headerlink" title="型別判斷"></a>型別判斷</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> (運算元)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// input 輸入</span></span><br><span class="line"><span class="title function_">checkType</span>(<span class="number">3.33</span>)</span><br><span class="line"><span class="title function_">checkType</span>(<span class="string">&quot;Hello&quot;</span>)</span><br><span class="line"><span class="title function_">checkType</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="title function_">checkType</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">// output 輸出</span></span><br><span class="line"><span class="string">&quot;number&quot;</span></span><br><span class="line"><span class="string">&quot;string&quot;</span></span><br><span class="line"><span class="string">&quot;boolean&quot;</span></span><br><span class="line"><span class="string">&quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+</br>
+
+<h2 id="🏅-If-流程判斷"><a href="#🏅-If-流程判斷" class="headerlink" title="🏅 If 流程判斷"></a>🏅 If 流程判斷</h2><h3 id="if-else-條件判斷"><a href="#if-else-條件判斷" class="headerlink" title="if&#x2F;else 條件判斷"></a>if&#x2F;else 條件判斷</h3><table>
+<thead>
+<tr>
+<th>if &#x2F; else</th>
+<th>描述</th>
+<th>if &#x2F; else</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>if…</code></td>
+<td>判斷式 : A</td>
+<td><code>if… else…</code></td>
+<td>二分法判斷式 : A 或非 A</td>
+</tr>
+<tr>
+<td><code>if… else if…</code></td>
+<td>判斷兩種情況 : A 或 B</td>
+<td><code>if… else if… else…</code></td>
+<td>三分法判斷式 : A 或 B 或「非A非B」</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://github.com/Jainee0110/2024-Camp-Hexo">Jainee Wang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://github.com/Jainee0110/2024-Camp-Hexo/2024/05/29/Javascript/">https://github.com/Jainee0110/2024-Camp-Hexo/2024/05/29/Javascript/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/Jainee0110/2024-Camp-Hexo/tags/Frontend/">Frontend</a><a class="post-meta__tags" href="/Jainee0110/2024-Camp-Hexo/tags/JS/">JS</a></div><div class="post_share"><div class="social-share" data-image="/Jainee0110/2024-Camp-Hexo/img/Jainee.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/Jainee0110/2024-Camp-Hexo/2024/05/29/HTML-CSS/" title="HTML/CSS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">HTML/CSS</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/Jainee0110/2024-Camp-Hexo/2024/05/29/HTML-CSS/" title="HTML&#x2F;CSS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-29</div><div class="title">HTML&#x2F;CSS</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/Jainee0110/2024-Camp-Hexo/img/Jainee.jpg" onerror="this.onerror=null;this.src='/Jainee0110/2024-Camp-Hexo/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jainee Wang</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/Jainee0110/2024-Camp-Hexo/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/Jainee0110/2024-Camp-Hexo/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/Jainee0110/2024-Camp-Hexo/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%85-%E6%95%B8%E5%AD%97%E8%99%95%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">🏅 數字處理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E6%8D%A8%E4%BA%94%E5%85%A5%E8%AA%9E%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">四捨五入語法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%B8%B2%E8%BD%89%E6%95%B8%E5%AD%97"><span class="toc-number">1.2.</span> <span class="toc-text">字串轉數字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A4%98%E6%95%B8%E9%81%8B%E7%AE%97%E5%AD%90"><span class="toc-number">1.3.</span> <span class="toc-text">餘數運算子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%85-%E5%AD%97%E4%B8%B2%E8%A8%AD%E8%A8%88"><span class="toc-number">2.</span> <span class="toc-text">🏅 字串設計</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%B8%B2%E9%95%B7%E5%BA%A6%E8%A8%88%E7%AE%97"><span class="toc-number">2.1.</span> <span class="toc-text">字串長度計算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E5%BC%B7%E5%88%B6%E5%B0%8F%E5%AF%AB"><span class="toc-number">2.2.</span> <span class="toc-text">英文強制小寫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E9%99%A4%E6%AE%B5%E8%90%BD%E5%85%A9%E7%AB%AF%E7%A9%BA%E7%99%BD"><span class="toc-number">2.3.</span> <span class="toc-text">去除段落兩端空白</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%B8%B2%E8%BD%89%E9%99%A3%E5%88%97"><span class="toc-number">2.4.</span> <span class="toc-text">字串轉陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%87%E5%89%B2%E5%AD%97%E4%B8%B2"><span class="toc-number">2.5.</span> <span class="toc-text">切割字串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%85-%E9%81%8B%E7%AE%97%E5%BC%8F%E8%88%87%E9%81%8B%E7%AE%97%E5%AD%90"><span class="toc-number">3.</span> <span class="toc-text">🏅 運算式與運算子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BC%83%E9%81%8B%E7%AE%97%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">比較運算子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%8F%E8%BC%AF%E9%81%8B%E7%AE%97%E5%AD%90"><span class="toc-number">3.2.</span> <span class="toc-text">邏輯運算子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%8B%E5%88%A5%E5%88%A4%E6%96%B7"><span class="toc-number">3.3.</span> <span class="toc-text">型別判斷</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%85-If-%E6%B5%81%E7%A8%8B%E5%88%A4%E6%96%B7"><span class="toc-number">4.</span> <span class="toc-text">🏅 If 流程判斷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if-else-%E6%A2%9D%E4%BB%B6%E5%88%A4%E6%96%B7"><span class="toc-number">4.1.</span> <span class="toc-text">if&#x2F;else 條件判斷</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> Jainee Wang</div><!--if theme.footer.copyright.framework-info
+  span= _p('footer.framework') + ' '
+  a(href='https://hexo.io')= 'Hexo'
+  span.footer-separator |
+  span= _p('footer.theme') + ' '
+  a(href='https://github.com/jerryc127/hexo-theme-butterfly')= 'Butterfly'--></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/Jainee0110/2024-Camp-Hexo/js/utils.js?v=4.13.0"></script><script src="/Jainee0110/2024-Camp-Hexo/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer src="https://cdn.jsdelivr.net/combine/npm/jquery@latest/dist/jquery.min.js,gh/weilining/jsdelivr/jquery/circlemagic/circlemagic.min.js,gh/weilining/jsdelivr@latest/jquery/circlemagic/butterflycirclemagic.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
