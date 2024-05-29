@@ -3429,7 +3429,7 @@ h1.page-title + .tag-cloud-list {
   position: relative;
   width: 100%;
   background: url(2024-Camp-Hexo/../source/Images/banner.jpg);
-  background-color: #49b1f5;
+  /* background-color: #49b1f5;*/
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
